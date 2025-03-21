@@ -2,7 +2,7 @@
 FROM node:20
 
 # Set working directory inside container
-WORKDIR /src
+WORKDIR /frontend
 
 # Copy package.json and install dependencies
 COPY package.json package-lock.json ./

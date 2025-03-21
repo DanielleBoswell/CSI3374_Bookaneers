@@ -1,6 +1,6 @@
-from python:3.11-slim
+FROM python:3.11-slim
 
-WORKDIR /src
+WORKDIR /backend
 
 COPY . .
 
