@@ -5,7 +5,6 @@ FROM node:18
 WORKDIR /src
 
 # Copy package.json and package-lock.json and install deps
-COPY package.json package-lock.json ./
 RUN npm install
 
 # Copy the rest of the code

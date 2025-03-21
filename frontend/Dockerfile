@@ -1,5 +1,5 @@
 # Base image with Node.js installed
-FROM node:18
+FROM node:20
 
 # Set working directory inside container
 WORKDIR /src
