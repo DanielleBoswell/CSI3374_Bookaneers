@@ -8,7 +8,7 @@
   * Data Visualization on Ratings/Reviews of the Book
     * Report Page
 * Database portion: BOOKS
-  * Kaggle: Books Sales and Ratings
+  * Kaggle: [Books Sales and Ratings](https://www.kaggle.com/datasets/thedevastator/books-sales-and-ratings)
   * OpenLibrary
 * Other Database options
   * Ratings + Reviews
