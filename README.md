@@ -13,13 +13,13 @@ It then builds and runs the docker compose file.
 All other instances when starting up the containers should be executed with this command:
 
 ```bash
-docker compose -f ./docker-compose.yml up -d
+docker compose up -d
 ```
 
-Once you are done using the containers, you can shut them down using:
+Followed by this command to shut them down:
 
 ```bash
-docker compose -f ./docker-compose.yml down
+docker compose down
 ```
 
 ## 3/20 - Project Plan:

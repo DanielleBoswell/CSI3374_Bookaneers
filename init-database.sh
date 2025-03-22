@@ -5,4 +5,4 @@ docker compose down --volumes --remove-orphans
 rm -rf ./data/postgres-data
 
 echo "🚀 Rebuilding and starting everything fresh..."
-docker compose -f ./docker-compose.yml up -d 
+docker compose up --build -d
