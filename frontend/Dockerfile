@@ -6,6 +6,7 @@ WORKDIR /frontend
 
 # copy package.json and install dependencies
 COPY package.json package-lock.json ./
+RUN npm install react-router-dom
 RUN npm install
 
 # copy the rest of the app
