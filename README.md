@@ -1,14 +1,20 @@
 # CSI3374_Bookaneers
 
 ## Running the Project:
-Run the following command in the terminal:
+When first running the containers, execute the following command in the terminal:
 
 ```bash
-./run-compose
+./init-database
 ```
 
-This script will clear all volumes and empty the database environment to ready it for initialization.
+This script will ensure all the volumes are clear and empty the database environment to ready it for initialization.
 It then builds and runs the docker compose file.
+
+All other instances when starting up the containers should be executed with this command:
+
+```bash
+docker compose -f ./docker-compose.yml up -d
+```
 
 Once you are done using the containers, you can shut them down using:
 
