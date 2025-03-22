@@ -1,6 +1,7 @@
 # CSI3374_Bookaneers
 
-Project Plan:
+
+## 3/20 - Project Plan:
 * Non-CRUD pages (2):
   * Dashboard/Search for Books
   * Book Profile
@@ -15,3 +16,12 @@ Project Plan:
   * View Books
   * Search Up Books
   * (optional) Create Reading List
+
+## 3/21 - Docker Containers
+* Really confused on how to create the compose files
+* Got the backend, frontend, and postgres db situated
+* Need to fix errors on backend and db
+
+## 3/22 - Docker Containers cont
+* Got pgAdmin and Postgres db to work
+* Still having issues between front end and backend
