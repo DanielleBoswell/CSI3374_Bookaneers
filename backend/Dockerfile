@@ -2,8 +2,9 @@ FROM python:3.11-slim
 
 WORKDIR /backend
 
-COPY . .
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 8000
+COPY ./src ./src
 
-CMD ["python3" "backend.py"]
+CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]

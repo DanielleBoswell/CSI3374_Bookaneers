@@ -1,7 +1,7 @@
 # base image with Node.js installed
 FROM node:20
 
-# eet working directory inside container
+# set working directory inside container
 WORKDIR /frontend
 
 # copy package.json and install dependencies
@@ -13,3 +13,8 @@ COPY . .
 
 # build and start the React app
 CMD ["npm", "start"]
+EXPOSE 3000
+#RUN npm run build
+#RUN npm install -g serve
+#CMD ["serve", "-s", "build", "-l", "8080"]
+

@@ -6,9 +6,9 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"         # maps local port to container's port
+      - "3000:3000"
     volumes:
-      - ./frontend:/src     # optional: live file sync for development
+      - ./frontend:/src
     environment:
       - NODE_ENV=production
 
