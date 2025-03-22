@@ -1,5 +1,20 @@
 # CSI3374_Bookaneers
 
+## Running the Project:
+Run the following command in the terminal:
+
+```bash
+./run-compose
+```
+
+This script will clear all volumes and empty the database environment to ready it for initialization.
+It then builds and runs the docker compose file.
+
+Once you are done using the containers, you can shut them down using:
+
+```bash
+docker compose -f ./docker-compose.yml down
+```
 
 ## 3/20 - Project Plan:
 * Non-CRUD pages (2):
