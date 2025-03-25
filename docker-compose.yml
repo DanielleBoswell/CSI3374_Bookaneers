@@ -18,6 +18,8 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
+    environment:
+      - PYTHONUNBUFFERED=0
     ports:
       - "8000:8000"
     volumes:
