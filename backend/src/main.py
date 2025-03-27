@@ -22,7 +22,8 @@ def search_books(query: str = Query(..., min_length=1)):
     # Connect to an existing database
     conn = psycopg2.connect("dbname=default_database user=username password=password host=db port=5432")
     cur = conn.cursor()
-    cur.execute('SELECT index, book_name, author FROM books WHERE book_name LIKE %s', ("%{}%".format(query),))
+    
+    cur.execute('SELECT index, book_name, author FROM books WHERE LOWER(book_name) LIKE %s', ("%{}%".format(query.lower()),))
     columns = list(cur.description)
     result = cur.fetchmany(size=5)
     # transform result
@@ -35,9 +36,6 @@ def search_books(query: str = Query(..., min_length=1)):
             row_dict[col.name] = row[i]
         results.append(row_dict)
 
-    # matches = matches.to_dict(orient='records')
-    # results = matches[['book_name', 'author']].head(to_return)
-
     return results
 
 @app.get("/view_book")
@@ -48,12 +46,9 @@ def view_book(query: int = Query(...)):
     cur.execute('SELECT * FROM books WHERE index = %s', (query,))
     columns = list(cur.description)
     result = cur.fetchone()
-    # transform result
-    # make dict
-    print(result)
 
-    
-    results = [{
+    # transform result
+    results = {
         'index': result[0],
         'publishing_year': result[1],
         'book_name': result[2], 
@@ -68,7 +63,7 @@ def view_book(query: int = Query(...)):
         'sale_price': result[11],
         'sales_rank': result[12],
         'publisher': result[13],
-        'units_sold': result[14]}]
+        'units_sold': result[14]}
 
     return results
 

@@ -27,6 +27,7 @@ ALTER TABLE books_staging ALTER COLUMN publishing_year TYPE INTEGER USING publis
 -- init the actual table
 CREATE TABLE books AS
 SELECT 
+    index,
     publishing_year,
     book_name,
     author,
