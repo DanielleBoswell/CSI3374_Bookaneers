@@ -1,13 +1,14 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
-import SearchPage from "./SearchPage"
+import SearchPage from './SearchPage';
+import ViewBookPage from "./ViewBookPage";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/view/:book_index" element={<ViewBookPage />} />
         <Route
           path="/"
           element={

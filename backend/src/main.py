@@ -22,7 +22,7 @@ def search_books(query: str = Query(..., min_length=1)):
     # Connect to an existing database
     conn = psycopg2.connect("dbname=default_database user=username password=password host=db port=5432")
     cur = conn.cursor()
-    cur.execute('SELECT book_name AS "Book Name", author AS "Author" FROM books WHERE book_name LIKE %s', ("%{}%".format(query),))
+    cur.execute('SELECT index, book_name, author FROM books WHERE book_name LIKE %s', ("%{}%".format(query),))
     columns = list(cur.description)
     result = cur.fetchmany(size=5)
     # transform result
@@ -41,18 +41,34 @@ def search_books(query: str = Query(..., min_length=1)):
     return results
 
 @app.get("/view_book")
-def view_book(query: str = Query(..., min_length=1)):
+def view_book(query: int = Query(...)):
     # Connect to an existing database
     conn = psycopg2.connect("dbname=default_database user=username password=password host=db port=5432")
     cur = conn.cursor()
-    cur.execute('SELECT book_name AS "Book Name", author AS "Author" FROM books WHERE book_name = %s', (query,))
+    cur.execute('SELECT * FROM books WHERE index = %s', (query,))
     columns = list(cur.description)
     result = cur.fetchone()
     # transform result
     # make dict
     print(result)
 
-    results = [{'Book Name': result[0], 'Author': result[1]}]
+    
+    results = [{
+        'index': result[0],
+        'publishing_year': result[1],
+        'book_name': result[2], 
+        'author': result[3],
+        'language_code': result[4],
+        'author_rating': result[5],
+        'book_average_rating': result[6],
+        'book_ratings_count': result[7],
+        'genre': result[8],
+        'gross_sales': result[9],
+        'publisher_revenue': result[10],
+        'sale_price': result[11],
+        'sales_rank': result[12],
+        'publisher': result[13],
+        'units_sold': result[14]}]
 
     return results
 

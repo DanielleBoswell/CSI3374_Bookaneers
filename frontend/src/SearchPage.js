@@ -1,4 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import {Link} from 'react-router-dom';
+
+
+export const BookList = ({data}) => {
+  return (
+    <ul className="mt-4">
+      {data.map((book, idx) => (
+        <li key={idx}><Link to={`/view/${idx}`}>{book["book_name"]} — {book["author"]}</Link></li>
+      ))}
+    </ul>
+  )}
 
 const SearchPage = () => {
   const [query, setQuery] = useState('')
@@ -23,13 +34,9 @@ const SearchPage = () => {
       <button onClick={handleSearch} className="bg-blue-500 text-white px-4 py-2 rounded">
         Search
       </button>
-      <ul className="mt-4">
-        {results.map((book, idx) => (
-          <li key={idx}>{book["Book Name"]} — {book["Author"]}</li>
-        ))}
-      </ul>
+      {<BookList data={results}/>}
     </div>
   )
 }
 
-export default SearchPage
+export default SearchPage;
