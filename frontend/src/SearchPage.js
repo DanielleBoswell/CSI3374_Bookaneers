@@ -6,7 +6,7 @@ export const BookList = ({data}) => {
   return (
     <ul className="mt-4">
       {data.map((book, idx) => (
-        <li key={idx}><Link to={`/view/${idx}`}>{book["book_name"]} — {book["author"]}</Link></li>
+        <li key={idx}><Link to={`/view/${book["index"]}`}>{book["book_name"]} — {book["author"]}</Link></li>
       ))}
     </ul>
   )}
